@@ -1,3 +1,10 @@
+/*******************************************************************************
+PROBLEMS
+.navlink .login it needs to be more justified to the right but I can't get it to work
+
+
+********************************************************************************/
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 /* Styles and layout copied from https://module-2-fp-example-website.vercel.app/ */
@@ -5,14 +12,13 @@
 /* COLOR SET */
 
 /* from copilot, using the site css as a model */
-/*
 :root {
-  /* BRAND COLORS **
+  /* BRAND COLORS */
   --color-primary: #6415ff;
   --color-primary-hover: rgba(80, 17, 204);
   --color-primary-dark: rgba(60, 13, 153);
 
-  /* SECONDARY / ACCENT COLORS **
+  /* SECONDARY / ACCENT COLORS */
   --color-accent-teal-start: rgb(56, 178, 172);
   --color-accent-teal-end: rgb(129, 230, 217);
 
@@ -24,13 +30,13 @@
 
   --color-accent-warning: rgb(246, 173, 85);
 
-  /* BACKGROUND COLORS **
+  /* BACKGROUND COLORS */
   --color-bg: #ffffff;
   --color-bg-surface: #f7fafc;
   --color-bg-muted: #edf2f7;
   --color-bg-brand: rgb(100, 21, 255); /* CTA + footer */
 
-  /* TEXT COLORS **
+  /* TEXT COLORS */
   --text-primary: #243e63;
   --text-secondary: #4b5568;
   --text-tertiary: #718096;
@@ -38,35 +44,38 @@
   --text-inverse: #ffffff;
   --text-inverse-soft: #f7fafc;
 
-  /* BORDER COLORS **
+  /* BORDER COLORS */
   --border-light: #e5e7eb;
   --border-medium: rgb(229, 231, 235);
   --border-strong: rgb(160, 174, 192);
 
-  /* UTILITY COLORS **
+  /* UTILITY COLORS */
   --success: #9ae6b4;
   --error: #feb2b2;
 }
-*/
+/* */
 
 :root {
   /* Brand / UI colors */
   --rgb-bg: #f8f9fa;
-  --rgb-surface: #ffffff;
-  --rgb-pri: #3b82f6;       /* Primary      */
+  --rgb-surface: #fff;
+  --rgb-pri: #6415ff;       /* Primary      */
   --rgb-sec: #9333ea;       /* Secondary    */
   --rgb-accent: #f59e0b;
 
   /* Text colors */
-  --rgb-txt-pri: #1f2937;   /* Primary      */
+  --rgb-txt-pri: #243e63;   /* Primary      */
   --rgb-txt-sec: #4b5563;   /* Secondary    */
-  --rgb-txt-inv: #ffffff;   /* Inverse      */
+  --rgb-txt-muted: #7c8ba1; /* Muted        */
+  --rgb-txt-inv: #fff;      /* Inverse      */
 
   /* Utility colors */
+  --rgb-btn-hover: #5011cc;
   --rgb-success: #10b981;
   --rgb-warning: #fbbf24;
   --rgb-error: #ef4444;
   --rgb-border: #e5e7eb;
+  --rgb-border-strong: #a0aec0;
 }
 
 
@@ -75,13 +84,45 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', system-ui;
-    color: var(--rgb-error);
+    color: var(--text-primary);
     /*color: #243e63;*/
 }
 
 body {
     max-width: 100vw;
     overflow-x: hidden;
+}
+
+h1 {
+    color: var(--rgb-txt-pri);
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+h4 {
+    color: var(--rgb-pri);
+    text-transform: uppercase;
+}
+
+p {
+    line-height: 1.5;
+} 
+
+a {
+    font-size:medium;
+    font-weight: bold;
+    color: var(--rgb-txt-pri);
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
 }
 
 .row {
@@ -112,6 +153,21 @@ main {
     margin-bottom: 96px;
 }
 
+.btn {
+    border: none;
+    padding: 10px 32px;
+    border-radius: 100px;
+    background-color: var(--rgb-pri);
+    color: var(--rgb-surface);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.btn:hover {
+    background-color: var(--rgb-btn-hover);
+}
+
 
 /* NAVBAR ↓ */
 
@@ -124,18 +180,57 @@ nav {
 .nav__row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .nav__logo {
     display: flex;
     align-items: center;
-    margin: 8px 0;
+}
+
+.nav__logo--img {
     padding-bottom: 4px;
-    width: 50px;
+    width: 40px;
 }
 
 .nav__logo--title {
     font-size: x-large;
+    color: var(--rgb-txt-pri);
+    font-weight: 900;
+    margin-left: 12px;
+    padding-bottom: 4px;
+}
+
+.nav__links {
+}
+
+.nav__link {
+    margin: 0 2vw;
+}
+
+.nav__link {
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 4px;
+    border-bottom: 2px solid transparent;
+    position: relative;
+    transition: all 300ms;    
+}
+
+.login {
+    text-align: right;  /* PROBLEM: why doesn't this work? */
+}
+
+.nav__link--primary {
+    margin: 0;
+    margin-top: 2px;
+    padding-top: 10px;
+    color: var(--rgb-surface);
+    background-color: var(--rgb-pri);
+    line-height: 1.5;
+    border: none;
+    width: auto;
+    transition: all 300ms;
 }
 
 .btn__menu {
@@ -205,6 +300,42 @@ nav {
     right: 18px;
 }
 
+/****************************
+
+    SECTION
+
+    The sections are generic containers that are repeated down the page from top to bottom.
+
+*****************************/
+
+.section__tag {
+  font-size: medium;
+  color: var(--rgb-pri);
+  letter-spacing: 1.6px;
+  font-weight: bold;
+  text-transform: uppercase;
+
+}
+
+.section__title {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--rgb-txt-pri);
+    line-height: 1.5;
+    margin: 16px 0;
+    letter-spacing: 0.025em;}
+
+.section__para {
+    font-size: large;
+    font-weight: 500;
+    color: var(--rgb-txt-muted);
+    line-height: 1.625;
+}
+
+.section__img--wrapper {
+    z-index: 1;
+    position: relative; /* necessary for child with absolute pos */
+}
 
 /* 
 
@@ -212,6 +343,9 @@ HEADER / ABOUT US ↓
 
 */
 
+header {
+    position: relative;
+}
 
 header .row {
     display: flex;
@@ -219,6 +353,86 @@ header .row {
     justify-content: space-between;
 }
 
+.header__description {
+    width: 40%;
+}
+
+.header__description--para {
+    font-size: medium;
+    margin: 24px 0;
+}
+
+.header__img--wrapper {
+    display: flex;
+    margin-top: 48px;
+}
+
+.header__img {
+    width: 100%;
+    max-width: 512px;
+}
+
+.header__email {
+    width: 100%;
+    max-width: 448px;
+    height: 68px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header__email--input {
+    width: 100%;
+    border-radius: 500px;
+    border: 2px solid var(--rgb-border);
+    padding: 20px 192px 20px 32px;
+    /* change color of placeholder text */
+    color: var(--rgb-error);
+    font-size: 16px;
+    font-weight: 500;
+    position: absolute; /* Necessary to cover the button */
+    transition: border-color 300ms;
+}
+
+.header__email--input:hover {
+    border-color: var(--rgb-border-strong);
+}
+
+.header__email--input:focus, .header__email--input:active {
+    outline: none;
+    border-color: var(--rgb-pri);
+}
+
+.header__email--btn {
+    z-index: 1; /* necessary to cover the email input */
+    margin: 8px;
+    height: calc(100% - 16px);
+    width: 160px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.header__customers--title {
+    margin: 48px 0 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--rgb-border-strong);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.header__customers {
+    margin: 16px 0 0;
+    opacity: 0.5;
+}
+
+.header__img--wrapper {
+
+}
+
+.header__img {
+}
 
 /* 
 
@@ -237,6 +451,50 @@ FEATURES ↓
     align-items: center;
 }
 
+.features {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+}
+                     
+.feature {
+    /*width: calc(100 / 3);*/
+}
+
+.feature__row {
+    display: flex;
+    align-items: flex-start;
+    padding: 32px 24px;
+}
+
+.feature__img--wrapper {
+    display: flex;  /* make sure the contents are centered */
+    padding: 20px;
+    border: 1px solid var(--rgb-border);
+    border-radius: 500px;
+}
+
+.feature__img {
+    width: 24px;
+}
+
+.feature__text {
+    margin: 8px 0 0 16px;
+}
+
+.feature__title {
+
+}
+
+.feature__para {
+    margin-top: 16px;
+    font-size: 16px;
+    max-width: calc(634px / 3);
+    color: var(--rgb-txt-muted);
+    line-height: 2;
+    font-weight: 500;
+}
+
 
 /* 
 
@@ -251,6 +509,62 @@ QUALITY WORK ↓
     align-items: center;
 }
 
+.quality__description,
+.quality__img--wrapper {
+    width: 50%;
+}
+
+.quality__description {
+    max-width: 576px;
+    margin-right: 64px;
+}
+
+.quality__img--wrapper {
+    border-radius: 4px;
+    border: 1px solid rgb(229, 231, 235);
+    position: relative; /* needed for child absolute positioning */
+    margin: 0 56px;
+    display: flex;
+}
+
+.quality__img {
+    z-index: 1;
+}
+
+.quality__grid {
+    /* build the grid */
+    width: 80px;  /* overall width */
+    height: 80px; /* overall height */
+    background-image: radial-gradient(var(--rgb-pri) 2px, transparent 2px); /* dot size/color */
+    background-size: 8px 8px; /* space between */
+
+    /* position the grid */
+    transform: translateX(50%) translateY(50%) scaleX(1) scaleY(1);
+    position:absolute;
+    display: block;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+
+    animation: pulseGrid 20s infinite ease-in-out;
+}
+
+@keyframes pulseGrid {
+  0% {
+    background-size: 8px 8px;
+  }
+  50% {
+    background-size: 20px 20px;
+  }
+  100% {
+    background-size: 8px 8px;
+  }
+}
+
+.btn__quality {
+    padding: 12px 32px;
+    margin-top: 32px;
+}
 
 /* 
 
