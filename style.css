@@ -1,13 +1,17 @@
 /*******************************************************************************
-PROBLEMS
-.navlink .login it needs to be more justified to the right but I can't get it to work
+MAJOR DEVIATIONS
 
+Most of the styles and layout copied from https://module-2-fp-example-website.vercel.app/
+
+However, I added a :root color set and referred to all the colors by variable names
+
+Another deviation is that I replaced the specific section descriptions like
+testimonials__description, for example with a generic section__description that
+applies to them all.
 
 ********************************************************************************/
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-/* Styles and layout copied from https://module-2-fp-example-website.vercel.app/ */
 
 /* COLOR SET */
 
@@ -55,8 +59,7 @@ html {scroll-behavior: smooth; } /* make automatic scrolling smooth instead of j
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', system-ui;
-    color: var(--text-primary);
-    /*color: #243e63;*/
+    color: var(--txt-pri);
 }
 
 body {
@@ -463,8 +466,6 @@ header .row {
     border-radius: 500px;
     border: 2px solid var(--color-border);
     padding: 20px 192px 20px 32px;
-    /* change color of placeholder text */
-    color: var(--color-error);
     font-size: 16px;
     font-weight: 500;
     position: absolute; /* Necessary to cover the button */
@@ -585,7 +586,6 @@ QUALITY WORK ↓
     align-items: center;
 }
 
-.quality__description,
 .quality__img--wrapper {
     width: 50%;
 }
@@ -741,9 +741,6 @@ VALUES ↓
     align-items: center;
 }
 
-.values__description {
-    width: 50%;
-}
 
 .values__list {
     display: flex;
@@ -794,9 +791,9 @@ VALUES ↓
     line-height: 1.625;
 }
 
-/*.values__img {
+.values__img {
     width: 50%;
-}*/
+}
 
 /*
 
@@ -1345,114 +1342,84 @@ MOBILE RESPONSIVENESS ↓
 */
 
 
-/*
-@media (max-width: 1280px) {
-  header .row {
-    align-items: flex-end;
-  }
-
-  .steps__grid {
-    height: 5rem;
-    width: 5rem;
-    bottom: -50px;
-  }
-  h1 {
-    font-size: 36px;
-    color: #1a202c;
-    line-height: 1.25;
-  }
-  .header__description--para {
-    font-size: 16px;
-  }
-  .header__customers {
-    padding-right: 64px;
-  }
-  .header__img--wrapper {
-    display: flex;
-    justify-content: flex-end;
-  }
-  .header__img {
-    max-width: 512px;
-  }
-  .plan__button {
-    max-width: none;
-  }
-
-  .plan__bottom {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-  .testimonials__img {
-    width: 40%;
-  }
-  .testimonials__description {
-    width: calc(100% - 40%);
-  }
-}
-
-
 @media (max-width: 1024px) {
   .nav__links {
     display: none;
   }
+
   .btn__menu {
     display: block;
   }
+
   header .row {
     flex-direction: column;
     align-items: center;
   }
+
   .header__description,
   .header__img--wrapper {
     width: 100%;
     max-width: 512px;
     margin: 0 auto;
   }
+
   .header__description {
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
   h1 {
     font-size: 30px;
   }
+
   .header__description--para {
     margin: 20px 0;
   }
+
   .header__customers {
     padding-right: 0px;
   }
+
+  #features .section__title, #pricing .section__title {
+    text-align: center;
+}
+
   .header__customers--title,
   .header__img--wrapper {
     margin-top: 48px;
   }
+
   .features {
     max-width: 768px;
   }
+
   .feature {
     width: calc(50%);
   }
+
   .feature__title {
     line-height: 1;
   }
+
   .feature__row {
     padding: 32px 8px;
     margin: 0 16px;
   }
+
   .feature__para {
     max-width: none;
   }
+
   .section__para {
     font-size: 16px;
   }
+
   .section__title {
     font-size: 36px;
   }
-  .quality__description {
-    margin-right: 0px;
-    padding-right: 48px;
-  }
+
   .value {
     margin-top: 2.5rem;
   }
@@ -1461,6 +1428,7 @@ MOBILE RESPONSIVENESS ↓
     max-width: 20rem;
     flex-direction: column;
   }
+
   .plans {
     flex-direction: column;
     align-items: center;
@@ -1469,6 +1437,7 @@ MOBILE RESPONSIVENESS ↓
   .plan {
     margin-right: 0px;
   }
+
   #features .section__title,
   #pricing .section__title {
     font-size: 48px;
@@ -1477,9 +1446,6 @@ MOBILE RESPONSIVENESS ↓
   #testimonials .container {
     padding-top: 5rem;
     padding-bottom: 5rem;
-  }
-  .testimonials__description {
-    padding-left: 48px;
   }
 
   #start .container {
@@ -1490,103 +1456,144 @@ MOBILE RESPONSIVENESS ↓
   .start__row {
     flex-direction: column;
   }
+
   .start__title {
     text-align: center;
     width: 100%;
     max-width: 512px;
   }
+
   .start__buttons {
     width: auto;
     margin-top: 24px;
   }
+
   .start__button {
     padding: 16px 32px;
   }
+
   footer {
     padding: 80px 32px;
   }
 }
 
-/**/
+/*
+
+@media (max-width: 768px)
+
+*/
 
 @media (max-width: 768px) {
+  .container {
+    padding: 80px 0;
+  }
+
   .features {
     justify-content: center;
   }
+
   .feature {
     width: auto;
     max-width: 384px;
   }
+
   .section__para {
     font-size: 14px;
   }
+
+  #steps .row,
+  #testimonials .row {
+      flex-direction: column;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1280px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+
   #quality .row,
   #values .row {
     flex-direction: column-reverse;
   }
-  .quality__description,
-  .steps__description,
-  .values__description,
-  .testimonials__description {
+
+  #testimonials .container {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .section__description,
+  .section__description--other {
     padding: 0;
     margin-top: 64px;
     text-align: center;
   }
-  .quality__description,
+
+  .section__description,
+  .section__description--other,
   .quality__img--wrapper,
-  .steps__description,
   .steps__img--wrapper,
-  .values__description,
   .values__img,
-  .testimonials__description,
   .testimonials__img {
     width: 100%;
     max-width: 448px;
   }
+
   #steps .row,
   #testimonials .row {
     flex-direction: column;
+  }
+
+  .steps__list {
+    margin-top: 48px;
   }
 
   .step {
     flex-direction: column;
     align-items: center;
   }
+
   .step__description {
     margin-top: 12px;
     margin-left: 0;
   }
+
   .values__list {
     margin-left: auto;
     margin-right: auto;
   }
+
   .value:nth-of-type(1) {
     margin-right: 0px;
   }
+
   .value {
     margin-right: 0px;
     align-items: center;
   }
+
   #pricing .row {
     margin-top: 40px;
   }
-  .testimonials__description {
-    padding-left: 0;
-  }
+
   .footer__columns {
     justify-content: flex-start;
   }
+  
   .footer__column {
     width: calc(100% / 3);
   }
+
   .footer__bottom {
     flex-direction: column;
     align-items: center;
   }
+
   .footer__copyright,
   .footer__socials {
     margin-top: 32px;
   }
+
   .footer__socials {
     margin-left: 0px;
   }
@@ -1595,28 +1602,38 @@ MOBILE RESPONSIVENESS ↓
   }
 }
 
+/*
+
+@media (max-width: 640px)
+
+*/
 
 @media (max-width: 640px) {
   .section__title {
     line-height: 1.25;
   }
+
   .container {
     padding: 80px 0;
   }
+
   .nav__logo {
     margin: 8px 0;
     padding-bottom: 4px;
   }
+
   .header__email {
     flex-direction: column;
     height: auto;
   }
+
   .header__email--input {
     position: static;
     padding: 16px 0;
     padding-left: 32px;
     line-height: 1.5;
   }
+
   .header__email--btn {
     width: 100%;
     padding: 16px 0;
@@ -1624,106 +1641,135 @@ MOBILE RESPONSIVENESS ↓
     margin-bottom: 0px;
     line-height: 1.5;
   }
+
   .header__customers--title {
     font-size: 14px;
     letter-spacing: 0.05em;
   }
+
   .section__title {
     font-size: 30px;
   }
+
   #features .section__title,
   #pricing .section__title {
     font-size: 36px;
   }
+
   .feature__row {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
+
   .feature__title {
     letter-spacing: 0.025em;
     line-height: 1;
   }
+
   .feature__text {
     margin-left: 0px;
     margin-top: 16px;
   }
+
   .feature__para {
     margin-top: 4px;
     line-height: 2;
   }
+
   #steps .section__title {
     margin: 16px 0 0 0;
   }
+
   .steps__list {
     margin-top: 48px;
   }
+
   .btn {
     line-height: 1.5;
   }
+
   .plan__price {
     font-size: 36px;
   }
+
   .plan__bottom {
     padding: 2rem 1rem;
   }
+
   .testimonial__para {
     margin-bottom: 32px;
   }
+
   .testimonial__bottom {
     flex-direction: column;
     align-items: center;
     padding-top: 4px;
   }
+
   .testimonial__profile {
     flex-direction: column;
     align-items: center;
   }
+
   .testimonial__details {
     margin-left: 0;
     margin-top: 8px;
   }
+
   .testimonial__img {
     height: 64px;
     width: 64px;
   }
+
   .testimonial__buttons {
     margin-top: 32px;
   }
+
   .start__title {
     font-size: 24px;
   }
+
   .start__container {
     padding: 80px 0;
   }
+
   .start__buttons {
     flex-direction: column;
   }
+
   .start__button:nth-child(1) {
-    margin-right: 0;
+    margin-right: 32px;
   }
+
   .start__button {
     padding: 12px 24px;
     font-size: 14px;
   }
+
   .start__button:nth-child(2) {
     margin-top: 16px;
   }
+
   main {
     margin-bottom: 80px;
   }
+
   .footer__columns {
     justify-content: center;
   }
+
   .footer__column {
     width: auto;
     padding: 0 16px;
     text-align: center;
     align-items: center;
   }
+
   .footer__copyright {
     font-size: 14px;
     text-align: center;
     line-height: 1.5;
   }
+
 }
